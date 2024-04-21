@@ -1,0 +1,2 @@
+class ServerHead < ApplicationRecord
+end

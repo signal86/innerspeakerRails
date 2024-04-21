@@ -26,20 +26,39 @@
         <h2>create account</h2>
         <p>existing account: <%= link_to "login here", "/login" %></p>
     </div>
+
+    <%= form_with model: @accounts, class: "signup" do |form| %>
+        <div class="in-form">
+            <%= form.label :username, "username:" %>
+            <%= form.text_field :username %>
+        </div>
+        <div class="in-form">
+            <%= form.label :password, "password:" %>
+            <%= form.password_field :password %>
+        </div>
+        <div class="in-form">
+            <%= form.label :email, "email:" %>
+            <%= form.email_field :email %>
+        </div>
+        <p id="return"></p>
+        <%= form.submit "register" %>
+    <% end %>
+    <%#
     <form id="signup">
         <div class="in-form">
             <label>username:</label>
-            <input type="text" id="username" name="username" placeholder-"">
+            <input type="text" id="username" name="username" placeholder="">
         </div>
         <div class="in-form">
             <label>password:</label>
-            <input type="password" id="password" name="password" placeholder-"">
+            <input type="password" id="password" name="password" placeholder="">
         </div>
         <div class="in-form">
             <label>email:</label>
-            <input type="email" id="email" name="email" placeholder-"">
+            <input type="email" id="email" name="email" placeholder="">
         </div>
         <p id="return"></p>
         <button id="register-button" type="submit">register</button>
     </form>
+    %>
 </div>
