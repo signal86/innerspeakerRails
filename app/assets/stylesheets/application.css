@@ -15,7 +15,11 @@
  */
 
  body {
-    background-image: url("psy2.gif");
-    background-size: 25%;
+    background-image: linear-gradient(
+        -35deg,
+        #6e0053,
+        #3800a1
+    );
+    background-size: 100% 1%;
     color: black;
 }
