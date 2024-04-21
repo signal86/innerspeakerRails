@@ -8,5 +8,8 @@ class RegisterController < ApplicationController
     @email = params[:registration_form][:email]
 
     flash.now[:return] = "good"
+    puts "begin"
+    render "index", status: 500
+    puts "rendered"
   end
 end
