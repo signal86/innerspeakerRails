@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   get "/login", to: "login#index"
   get "/register", to: "register#index"
+  post "/register/submit", to: "register#submit"
+  # post "/register/submit", to: "register#registrationSubmit"
+  # resources :registration_form, only: %i[new registrationSubmit]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

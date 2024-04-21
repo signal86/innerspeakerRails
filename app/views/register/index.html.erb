@@ -27,7 +27,7 @@
         <p>existing account: <%= link_to "login here", "/login" %></p>
     </div>
 
-    <%= form_with model: @accounts, class: "signup" do |form| %>
+    <%= form_with scope: :registration_form, url: "/register/submit", class: "signup", remote: false do |form| %>
         <div class="in-form">
             <%= form.label :username, "username:" %>
             <%= form.text_field :username %>
