@@ -30,15 +30,15 @@
     <%= form_with scope: :registration_form, url: "/register/submit", class: "signup", remote: false do |form| %>
         <div class="in-form">
             <%= form.label :username, "username:" %>
-            <%= form.text_field :username %>
+            <%= form.text_field :username, value: flash[:username] %>
         </div>
         <div class="in-form">
             <%= form.label :password, "password:" %>
-            <%= form.password_field :password %>
+            <%= form.password_field :password, value: flash[:password] %>
         </div>
         <div class="in-form">
             <%= form.label :email, "email:" %>
-            <%= form.email_field :email %>
+            <%= form.email_field :email, value: flash[:email] %>
         </div>
         <p id="return"><%= flash[:return] %></p>
         <%= form.submit "register" %>

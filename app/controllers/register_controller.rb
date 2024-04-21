@@ -8,6 +8,9 @@ class RegisterController < ApplicationController
     @email = params[:registration_form][:email]
 
     flash.now[:return] = "good"
+    flash.now[:username] = @username
+    flash.now[:password] = @password
+    flash.now[:email] = @email
     puts "begin"
     render "index", status: 500
     puts "rendered"
