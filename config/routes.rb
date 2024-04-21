@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root "home#index"
 
   get "/login", to: "login#index"
+  get "/register", to: "register#index"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -1,0 +1,45 @@
+<% content_for :head do %>
+    <title>REGISTRATION / INNERSPEAKER</title>
+<% end %>
+
+<% content_for :stylesheets do %>
+    .container {
+        text-align: center;
+        margin-top: 3%;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .container #form-top h2 {
+        font-size: 32px;
+    }
+    .container #form-top {
+        margin-bottom: 55px;
+        padding: 0;
+    }
+    .container .in-form {
+        margin: 15px;
+    }
+<% end %>
+
+<div class="container">
+    <div id="form-top">
+        <h2>create account</h2>
+        <p>existing account: <%= link_to "login here", "/login" %></p>
+    </div>
+    <form id="signup">
+        <div class="in-form">
+            <label>username:</label>
+            <input type="text" id="username" name="username" placeholder-"">
+        </div>
+        <div class="in-form">
+            <label>password:</label>
+            <input type="password" id="password" name="password" placeholder-"">
+        </div>
+        <div class="in-form">
+            <label>email:</label>
+            <input type="email" id="email" name="email" placeholder-"">
+        </div>
+        <p id="return"></p>
+        <button id="register-button" type="submit">register</button>
+    </form>
+</div>
