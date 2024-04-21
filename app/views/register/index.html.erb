@@ -40,7 +40,7 @@
             <%= form.label :email, "email:" %>
             <%= form.email_field :email %>
         </div>
-        <p id="return"></p>
+        <p id="return"><%= flash[:return] %></p>
         <%= form.submit "register" %>
     <% end %>
     <%#

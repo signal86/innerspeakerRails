@@ -7,6 +7,6 @@ class RegisterController < ApplicationController
     @password = params[:registration_form][:password]
     @email = params[:registration_form][:email]
 
-    # render 'lol'
+    flash.now[:return] = "good"
   end
 end
