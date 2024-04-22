@@ -2,4 +2,41 @@
     <title>LOGIN / INNERSPEAKER</title>
 <% end %>
 
-<%= link_to "registration", "/register" %>
+<% content_for :stylesheets do %>
+    .container {
+        text-align: center;
+        margin-top: 3%;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .container #form-top h2 {
+        font-size: 32px;
+    }
+    .container #form-top {
+        margin-bottom: 55px;
+        padding: 0;
+    }
+    .container .in-form {
+        margin: 15px;
+    }
+<% end %>
+
+<div class="container">
+    <div id="form-top">
+        <h2>sign in</h2>
+        <p>need to register? <%= link_to "click here", "/register" %></p>
+    </div>
+
+    <%= form_with scope: :login_form, url: "/login/submit", class: "login", remote: false do |form| %>
+        <div class="in-form">
+            <%= form.label :username, "username or email:" %>
+            <%= form.text_field :username, value: flash[:username] %>
+        </div>
+        <div class="in-form">
+            <%= form.label :password, "password:" %>
+            <%= form.password_field :password, value: flash[:password] %>
+        </div>
+        <p id="return"><%= flash[:return] %></p>
+        <%= form.submit "register" %>
+    <% end %>
+</div>

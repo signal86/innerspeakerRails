@@ -16,7 +16,13 @@
   <body>
     <nav>
       <p><%= link_to "home", "/" %></p>
-      <p><%= link_to "login", "/login" %></p>
+      <% if cookies.encrypted[:login].blank? %>
+        <p><%= link_to "login", "/login" %></p>
+      <% elsif validUser(cookies.encrypted[:login]) %>
+        <p><%= link_to cookies.encrypted[:login], "/account" %></p>
+      <% else %>
+        <p><%= link_to "login", "/login" %></p>
+      <% end %>
     </nav>
     <%= yield %>
   </body>

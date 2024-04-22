@@ -1,0 +1,51 @@
+<% content_for :head do %>
+    <title>ACCOUNT / INNERSPEAKER</title>
+<% end %>
+
+<% content_for :stylesheets do %>
+    .container {
+        text-align: center;
+        margin-top: 3%;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .container #form-top h2 {
+        font-size: 32px;
+    }
+    .container #form-top {
+        margin-bottom: 55px;
+        padding: 0;
+    }
+    .container .in-form {
+        margin: 15px;
+    }
+<% end %>
+
+<% if !cookies.encrypted[:login].blank? %>
+
+
+
+<% if cookies.encrypted[:login] == "admin" %>
+    <div class="container">
+        <div id="form-top">
+            <h2>site admin</h2>
+        </div>
+
+        <%= form_with scope: :site_editor, url: "/admin/edit_site", class: "siteeditor", remote: false do |form| %>
+            <div class="in-form">
+                <%= form.label :banner, "banner:" %>
+                <%= form.text_field :banner, value: flash[:banner] %>
+            </div>
+            <p id="return"><%= flash[:return] %></p>
+            <%= form.submit "commit changes" %>
+        <% end %>
+    </div>
+<% end %>
+
+<div class="container">
+    <%= button_to "logout", "/account/logout" %>
+</div>
+
+
+
+<% end %>

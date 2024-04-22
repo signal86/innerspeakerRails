@@ -9,6 +9,6 @@ class Account < ApplicationRecord
 
   def password=(new_password)
     @password = Password.create(new_password)
-    @password_hash = @password
+    self.password_hash = @password
   end
 end

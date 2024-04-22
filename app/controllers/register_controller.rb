@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 class RegisterController < ApplicationController
   def index
     @accounts = Account.all
@@ -24,8 +26,7 @@ class RegisterController < ApplicationController
       end
     end
     if !used # create account
-      @account = Account.new(username: @username, email: @email)
-      @account.password = @password
+      @account = Account.new(username: @username, email: @email, password_hash: BCrypt::Password.create(@password))
       if @account.save
         committed = true
         cookies.encrypted.permanent[:login] = @username
