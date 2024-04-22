@@ -36,6 +36,10 @@
                 <%= form.label :banner, "banner:" %>
                 <%= form.text_field :banner, value: flash[:banner] %>
             </div>
+            <div class="in-form">
+                <%= form.label :delete_account, "delete account:" %>
+                <%= form.text_field :delete_account, value: "" %>
+            </div>
             <p id="return"><%= flash[:return] %></p>
             <%= form.submit "commit changes" %>
         <% end %>
