@@ -13,7 +13,7 @@ class RegisterController < ApplicationController
     flash.now[:email] = @email
 
     used = false
-    @accounts.each do |acc|
+    Account.all.each do |acc|
       if acc.username.downcase == @username.downcase
         used = true
         flash.now[:return] = "username not available"
