@@ -13,6 +13,7 @@ class RegisterController < ApplicationController
     flash.now[:email] = @email
 
     used = false
+    committed = false
     Account.all.each do |acc|
       if acc.username.downcase == @username.downcase
         used = true
@@ -26,11 +27,16 @@ class RegisterController < ApplicationController
       @account = Account.new(username: @username, email: @email)
       @account.password = @password
       if @account.save
-        flash.now[:return] = "account made! logging in now"
+        committed = true
+        cookies.encrypted.permanent[:login] = @username
       else
-        flash.now[:return] = "database error!!!!"
+        flash.now[:return] = "database error"
       end
     end
-    render "index", status: 500
+    if committed
+      redirect_to "/"
+    else
+      render "index", status: 500
+    end
   end
 end
